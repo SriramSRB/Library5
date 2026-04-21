@@ -83,7 +83,6 @@ resource "aws_instance" "library5_server" {
     root_block_device {
         volume_size = 16
         volume_type = "gp3"
-
-        tags        = { Nmae = "library5-server" }
     }
+        tags        = { Nmae = "library5-server" }
 }
