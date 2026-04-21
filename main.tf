@@ -75,7 +75,7 @@ resource "aws_key_pair" "library5_key" {
 
 resource "aws_instance" "library5_server" {
     ami                    = "ami-05d2d839d4f73aafb"
-    instance_type          = "m71-flex.large"
+    instance_type          = "m7i-flex.large"
     subnet_id              = aws_subnet.library5_subnet.id
     vpc_security_group_ids = [aws_security_group.library5_sg.id]
     key_name               = aws_key_pair.library5_key.key_name
