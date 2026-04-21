@@ -8,7 +8,7 @@ resource "aws_vpc" "library5_vpc" {
 }
 
 resource "aws_subnet" "library5_subnet" {
-    vpc_id                  = aws_vpc.library5_vp.id
+    vpc_id                  = aws_vpc.library5_vpc.id
     cidr_block              = "10.0.0.0/21"
     map_public_ip_on_launch = true
     availability_zone       = "ap-south-1a"
@@ -16,11 +16,11 @@ resource "aws_subnet" "library5_subnet" {
 }
 
 resource "aws_internet_gateway" "igw" {
-    vpc_id = aws_vpc.library5_vp.id
+    vpc_id = aws_vpc.library5_vpc.id
 }
 
 resource "aws_route_table" "library5_rt" {
-    vpc_id = aws_vpc.library5_vp.id
+    vpc_id = aws_vpc.library5_vpc.id
     route {
         cidr_block = "0.0.0.0/0"
         gateway_id = aws_internet_gateway.igw.id
@@ -33,7 +33,7 @@ resource "aws_route_table_association" "library5_association" {
 }
 
 resource "aws_security_group" "library5_sg" {
-    vpc_id = aws_vpc.library5_vp.id
+    vpc_id = aws_vpc.library5_vpc.id
 
     ingress {
         from_port   = 22
