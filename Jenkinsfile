@@ -7,7 +7,7 @@ pipeline {
                 checkout scm
             }
         }
-        stege ('2. Docker image build') {
+        stage ('2. Docker image build') {
             steps {
                 sh 'docker build -t sriramsrb/library5:latest .'
             }
