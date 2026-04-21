@@ -15,7 +15,7 @@ pipeline {
         stage ('3. Push docker image') {
             steps {
                 withCredentials([string(credentialsId: 'docekrhub_user', variable: 'DOCKER_PWD')]) {
-                    sh 'echo "$DOCKER_PWD" | docker login sriramsrb --password-stdin'
+                    sh 'echo "$DOCKER_PWD" | docker login -u sriramsrb --password-stdin'
                     sh 'docker push sriramsrb/library5:latest'
                 }
             }
