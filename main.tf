@@ -70,7 +70,7 @@ resource "aws_security_group" "library5_sg" {
 
 resource "aws_key_pair" "library5_key" {
     key_name   = "library5-key"
-    public_key = file(f:/file/devops/library5/library5-key.pub) 
+    public_key = file("f:/file/devops/library5/library5-key.pub") 
 }
 
 resource "aws_instance" "library5_server" {
